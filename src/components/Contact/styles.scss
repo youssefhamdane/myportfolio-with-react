@@ -1,0 +1,89 @@
+.comp-contact {
+  &.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .section-header {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      max-width: 700px;
+      .title {
+        color: var(--text-color);
+        position: relative;
+        padding-bottom: 1rem;
+        font-weight: bold;
+        &:after {
+          content: '';
+          background-color: var(--primary-color);
+          height: 3px;
+          width: 160px;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          margin: 0 auto;
+        }
+      }
+      .description {
+        color: var(--text-color);
+      }
+    }
+    .card {
+      box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+      background-color: var(--card-bg-color);
+      border-radius: 5px;
+      color: var(--text-color);
+      width: 100%;
+      border: 2px solid var(--primary-color);
+
+      max-width: 500px;
+
+      .card-title {
+        font-weight: bold;
+        color: var(--primary-color);
+        position: relative;
+        padding-bottom: 18px;
+        margin-bottom: 20px;
+
+        &:after {
+          content: '';
+          background-color: var(--primary-color);
+          height: 3px;
+          width: 100%;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+        }
+      }
+      .contact-form {
+        .form-group {
+          padding: .6rem;
+          .form-control {
+            background-color: var(--secondary-alt-color);
+            border:1px solid var(--primary-color);
+            color: var(--text-color);
+            padding: 1.2rem;
+          }
+        }
+        .submit-form {
+          display: flex;
+          justify-content: right;
+          padding: 1rem;
+          .btn-submit {
+            background-color: var(--badge-bg-color);
+            color:var(--badge-text-color);
+            padding-left: 2rem;
+            padding-right: 2rem;
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 992px) {
+    &.container {
+      padding-top: 2rem;
+      height: auto;
+    }
+  }
+}

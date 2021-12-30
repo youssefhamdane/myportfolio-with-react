@@ -1,0 +1,196 @@
+.comp-projets {
+  &.container {
+    display: flex;
+    align-items: center;
+    min-height: 100%;
+    flex-direction: column;
+    .section-header {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      max-width: 700px;
+      .title {
+        color: var(--text-color);
+        position: relative;
+        padding-bottom: 1rem;
+        font-weight: bold;
+        &:after {
+          content: '';
+          background-color: var(--primary-color);
+          height: 3px;
+          width: 160px;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          margin: 0 auto;
+        }
+      }
+      .description {
+        color: var(--text-color);
+      }
+    }
+  }
+  .card {
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    background-color: var(--card-bg-color);
+    border-radius: 5px;
+    color: var(--text-color);
+    width: 100%;
+    border: 2px solid var(--primary-color);
+    text-align: left;
+    .card-title {
+      font-weight: bold;
+      color: var(--primary-color);
+      position: relative;
+      padding-bottom: 18px;
+      margin-bottom: 20px;
+
+      &:after {
+        content: '';
+        background-color: var(--primary-color);
+        height: 3px;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+      }
+    }
+    .card-text {
+      width: 620px;
+    }
+    .tool-badge {
+      background-color: var(--badge-bg-color);
+      color: var(--badge-text-color);
+      margin-left: .2rem;
+    }
+  }
+  .projects {
+    display: flex;
+    flex-direction: row;
+    min-width: 600px;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    min-height: 800px;
+
+    .project {
+      position: relative;
+      overflow: hidden;
+      max-width: 60px;
+      margin: 10px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+      transition-property: width, max-width;
+      width: 100%;
+      border: 2px solid var(--primary-color);
+      height: 653px;
+      .mask {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        background-color: var(--secondary-color)cf;
+      }
+      &:not(.active) {
+        flex-grow: 1;
+        .card {
+          display: none;
+          border: none;
+        }
+      }
+
+      &.active {
+        flex-grow: 10000;
+        transform: scale(1);
+        max-width: 650px;
+        margin: 0;
+        background-size: auto 100%;
+        overflow: visible;
+        background-image: none !important;
+        border: none;
+        height: 100%;
+        .mask {
+          display: none;
+        }
+        .card {
+          display: flex;
+          .card-text {
+            animation: fadeInBottom .8s;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 1400px) {
+    .projects {
+      .project {
+        height: 520px;
+      }
+    }
+    .card-text {
+      width: 620px;
+    }
+  }
+  @media screen and (max-width: 1200px) {
+    .projects {
+      .project {
+        height: 390px;
+      }
+    }
+    .card-text {
+      width: 500px;
+    }
+  }
+  @media screen and (max-width: 991px) {
+    .projects {
+      flex-direction: column;
+      height: auto;
+      width: 100%;
+      min-width: inherit;
+      align-items: center;
+      .project {
+        width: 100%;
+        flex-grow: inherit !important;
+        max-width: inherit !important;
+        margin: 0 0 1rem 0 !important;
+        overflow: visible;
+        border: none;
+        height: 100%;
+        .mask {
+          display: none !important;
+        }
+      }
+    }
+    .card {
+      display: flex !important;
+      border: 2px solid var(--primary-color) !important;
+      .card-text {
+        width: 100%;
+      }
+    }
+  }
+  @keyframes fadeInBottom {
+    0% {
+      opacity: 0;
+      transform: translateY(50%);
+    }
+    30% {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    100% { opacity: 1 }
+  }
+
+  @media (max-width: 992px) {
+    &.container {
+      padding-top: 2rem;
+      height: auto;
+    }
+  }
+}
